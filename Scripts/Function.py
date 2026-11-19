@@ -101,3 +101,51 @@ def divide(byNum):
 print(divide(2))
 print(divide(12))
 print(divide(0))  #! This will print an error message instead of raising an exception
+
+#Let''s say you want to handle multiple types of exceptions. You can do this by adding more except blocks:
+def divide(byNum):
+    try:
+        return 42/byNum
+    except ZeroDivisionError:
+        print("Error: Cannot divide by zero.")
+    except TypeError:
+        print("Error: Invalid input type. Please provide a number.")
+
+#Practice game
+import random
+
+def gamePractice():
+    secretNumber = random.randint(1, 20)
+    print("I am thinking of a number between 1 and 20.")
+
+    for guessesTaken in range(1, 7): #You have 6 attempts to guess the number
+        print("Take a guess.")
+        guess = int(input())
+
+        if guess < secretNumber:
+            print("So low.")
+        elif(guess > secretNumber):
+            print("So high.")
+        else:
+            break # This condition is the correct guess! So you can exit the loop.
+
+    if guess == secretNumber:
+        print("Yeap, you have made a really good job guessing the number in " + str(guessesTaken) + " attempts!")
+    else:
+        print("Nope. The number I was thinking of was " + str(secretNumber) + ". Better luck next time!")
+
+#gamePractice()
+
+
+def collatzSequence(number):
+    while number != 1:
+        if number % 2 != 0:
+            number = (3 * number) + 1
+        else:
+            number = number  / 2
+        print(number)
+
+    return number
+
+collatzSequence(4)
+collatzSequence(20)
