@@ -57,5 +57,73 @@ print('spam' + 'spamspam')
 print('spam' *3)
 print("Hello my fellow friends")
 
+print(59)
+
 #why does this expression cause an error? 'spam' + 3?
 #print("spam" + 3 + "burritos") #This will cause an error because we are trying to concatenate a string and an integer. We need to convert the integer to a string before concatenating.
+
+spam = True
+print(spam)
+
+print(42 == 42, 42 ==99, 42 < 100, 42 > 100, 42 <= 100, 42 >= 100, 10 != 10, 42 == "42") #This will print True, False, True, False, True, False
+eggCount = 42
+print(eggCount == 42) #This will print True, because the value of egg
+
+
+print(True and True) #This will print True, because both values are True
+print(False and True) #This will print False, because one of the values is False
+print(True or False) #This will print True, because one of the values is True
+print(False or False) #This will print False, because both values are False
+print(not True) #This will print False, because the value is True and we are negating it
+
+print((4 < 5) and (5 < 6)) #This will print True, because both values are True
+print((4 < 5) and (5 > 6)) #This will print False, because one of the values is False
+print(not(1==2)or (2==1))
+
+name = input("What is your name? ")
+password = input("What is your password? ")
+
+if name == "Mary":
+    print("Hello Mary")
+elif password == "swordfish":
+    print("Access granted.")
+else:
+    print("Wrong password.")
+
+
+spam = 0
+print(spam)
+while spam < 5:
+    print("Hello world.")
+    spam = spam + 1
+
+print(spam)
+
+print("My name is")
+for i in range(5):
+    print(" Jimmy Five Times (" + str(i)+ ")") #This will print "Jimmy Five Times (0)" "Jimmy Five Times (1)" "Jimmy Five Times (2)" "Jimmy Five Times (3)" "Jimmy Five Times (4)" "Jimmy Five Times (5)"
+
+import random
+randomNumber = random.randint(1, 10) #This will generate a random number between 1 and 10
+print(randomNumber)
+print(randomNumber)
+
+for i in range(5): #This will generate a random number between 1 and 10
+    print(random.randint(1, 10)) #This will generate a random number between 1 and 10
+
+import random, sys, os, math #This will import the random, sys, os, and math modules.
+
+from random import * #This will import all the functions from the random module.
+
+print(randint(1, 100)) #This will generate a random number between 1 and 10
+
+
+
+print("hello world")
+
+def hello(name):
+    print("Hello, " + name)
+
+hello("Alice")
+
+print(len("Borisasd"))
