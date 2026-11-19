@@ -53,4 +53,51 @@ def spam():
 spam()
 # print(eggs) # This will raise an error because eggs is not defined in the global scope
 
-def spam()
+def spam():
+    eggs = "spam local"
+    print(eggs)  # This will print "spam local"
+
+def bacon():
+    eggs = "bacon local"
+    print(eggs)  # This will print "bacon local"
+    spam()  # This will call the spam function and print "spam local
+    print(eggs)  # This will print "bacon local"
+
+eggs = "global"
+bacon()
+print(eggs)  # This will print "global"
+
+#The "global" statement allows you to modify a variable outside of the current scope
+def spam():
+    global eggs
+    eggs = "spam"
+
+eggs = "global"
+spam()
+print(eggs)
+
+#Unbound local error occurs when a local variable is referenced before it has been assigned a value. This can happen if you try to modify a global variable inside a function without declaring it as global.
+def spam():
+    print(eggs)
+    eggs = "spam local"
+
+egss = "global"
+#spam()  # This will raise an UnboundLocalError because eggs is referenced before assignment
+
+#Try and Except
+def divide(byNum):
+    return  42/byNum
+
+print(divide(2))
+print(divide(12))
+#print(divide(0))  #! This will raise a ZeroDivisionError
+
+def divide(byNum):
+    try:
+        return 42/byNum
+    except ZeroDivisionError:
+        print("Error: Cannot divide by zero.")
+
+print(divide(2))
+print(divide(12))
+print(divide(0))  #! This will print an error message instead of raising an exception
