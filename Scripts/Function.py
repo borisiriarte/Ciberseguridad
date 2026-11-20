@@ -149,3 +149,33 @@ def collatzSequence(number):
 
 collatzSequence(4)
 collatzSequence(20)
+
+
+def nextStep(number):
+    if number % 2 == 0:
+        number = number // 2
+    else:
+        number = (3 * number) + 1
+
+    return number
+
+def countSteps(input):
+    count = 0
+    try:
+        number = int(input)
+    except ValueError, TypeError:
+        return
+
+    if number >= 1:
+        while number != 1:
+            number = nextStep(number)
+            count += 1
+    else:
+        return
+    
+    return count
+
+countSteps(24)
+
+result = countSteps(6)
+print(result)
