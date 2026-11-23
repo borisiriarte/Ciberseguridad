@@ -218,3 +218,29 @@ def modify(value):
 
 count = modify(count)
 print(count)
+
+
+history = 0
+
+def registerEvent(name):
+    global history
+    history += 1
+    print(f"Registered event #{history}: {name}")
+
+registerEvent("Inicio de sesión")
+registerEvent("Descargar Reporte")
+print("Total acumulado: ", history)
+
+def registerPureEvent(currentTotal, name):
+    newTotal = currentTotal + 1
+    message =  f"Registered event #{newTotal}: {name}"
+    return (newTotal, message)
+
+total = 0
+total, msg = registerPureEvent(total, "First Commit")
+
+print(msg)
+
+total, msg = registerPureEvent(total, "Download report")
+print(msg)
+print("Total acumulado:", total, end = "...")
