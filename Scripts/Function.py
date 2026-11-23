@@ -179,3 +179,42 @@ countSteps(24)
 
 result = countSteps(6)
 print(result)
+
+def duplicate(x):
+    return x * 2
+
+def addTen(x):
+    return x +10
+
+def formatResult(label, value):
+    print(label, value, sep=": ", end=".")
+    return f"[{label}] Final Value = {value}"
+
+# message1= formatResult("Combined sum", duplicate(addTen(10)))
+
+
+# def modifyTry():
+#     print(count)
+#     count += 1
+
+# modifyTry()
+
+# count = 5
+
+# def modifyTry():
+#     global count
+#     print(count)
+#     count += 1
+
+# modifyTry()
+# print(count)
+
+
+count = 5
+
+def modify(value):
+    print(value)
+    return value + 14
+
+count = modify(count)
+print(count)
