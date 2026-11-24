@@ -313,15 +313,17 @@ def calculate(operation, a, b):
             case "division":
                 return one / two
             case _:
-                return "not a valid operation"
-    except TypeError:
-        print ("Just number, not lists, functions or whatever the hell is not a cosidered a nuner")
-    except ValueError:
-        print("Just numbers, not letters")
+                print(f"Unkonw operation: '{operation}'")
+                return "try again"
+
+    except TypeError as e:
+        print (f"Type error: {e}")
+    except ValueError as e:
+        print(f"Value error: {e}")
     except ZeroDivisionError:
-        print("In division you can't divide by zero, man")
-    except Exception:
-        print("What ever you did is provoking an error, please, do not do it")
+        print("Error: you can't divide by zero")
+    except Exception as e:
+        print(f"Error inesperado: {e}")
 
     return "Try again"
 
