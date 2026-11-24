@@ -243,4 +243,44 @@ print(msg)
 
 total, msg = registerPureEvent(total, "Download report")
 print(msg)
-print("Total acumulado:", total, end = "...")
+print("Total acumulado:", total)
+
+def readPositiveInteger(message):
+    while True:
+        try:
+            number = int(input(message))
+        except ValueError:
+            print("Invalid input: write an integer number.")
+            continue
+        except EOFError:
+            print("\n interrupted input")
+            return None
+
+        if number > 0:
+            return number
+
+        print("Number must be higher than zero")
+
+
+# readPositiveInteger("Please, enter a positive number: ")
+
+def printMultiplicationTable(n: int):
+    one = 1 * n
+    two = 2 * n
+    three = 3 * n
+    four = 4 * n
+    print(f"Its multiplication table goes:{one}, {two}, {three}, {four}")
+
+def getMultiplicationInline(n: int, i: int):
+    result = n * i
+    return f"Well. this time multiplier = {n} times multiplicand = {i} is equal to: {result}"
+
+def isNone(result):
+
+    if result is None:
+        return "This function has no return statement, so just None as result"
+
+    return "This funcion has a return statement"
+    
+print(isNone(getMultiplicationInline(2,6)))
+print(isNone(printMultiplicationTable(6)))
