@@ -4,11 +4,11 @@ def greet():
 
 greet()
 
-def greet(name):
+def greet_1(name):
     print("hello " +  name)
 
-greet("Boris")
-greet("Aranza")
+greet_1("Boris")
+greet_1("Aranza")
 
 def introduce(name, age):
     print("Hello, my name is " + name + " and my age is " + str(age))
@@ -53,7 +53,7 @@ def spam():
 spam()
 # print(eggs) # This will raise an error because eggs is not defined in the global scope
 
-def spam():
+def spam_1():
     eggs = "spam local"
     print(eggs)  # This will print "spam local"
 
@@ -68,18 +68,18 @@ bacon()
 print(eggs)  # This will print "global"
 
 #The "global" statement allows you to modify a variable outside of the current scope
-def spam():
+def spam_2():
     global eggs
     eggs = "spam"
 
 eggs = "global"
-spam()
+spam_2()
 print(eggs)
 
 #Unbound local error occurs when a local variable is referenced before it has been assigned a value. This can happen if you try to modify a global variable inside a function without declaring it as global.
-def spam():
-    print(eggs)
-    eggs = "spam local"
+# def spam():
+#     print(eggs)
+#     eggs = "spam local"
 
 egss = "global"
 #spam()  # This will raise an UnboundLocalError because eggs is referenced before assignment
@@ -92,18 +92,18 @@ print(divide(2))
 print(divide(12))
 #print(divide(0))  #! This will raise a ZeroDivisionError
 
-def divide(byNum):
+def divide_1(byNum):
     try:
         return 42/byNum
     except ZeroDivisionError:
         print("Error: Cannot divide by zero.")
 
-print(divide(2))
-print(divide(12))
-print(divide(0))  #! This will print an error message instead of raising an exception
+print(divide_1(2))
+print(divide_1(12))
+print(divide_1(0))  #! This will print an error message instead of raising an exception
 
 #Let''s say you want to handle multiple types of exceptions. You can do this by adding more except blocks:
-def divide(byNum):
+def divide_2(byNum):
     try:
         return 42/byNum
     except ZeroDivisionError:
@@ -281,6 +281,21 @@ def isNone(result):
         return "This function has no return statement, so just None as result"
 
     return "This funcion has a return statement"
-    
+
 print(isNone(getMultiplicationInline(2,6)))
 print(isNone(printMultiplicationTable(6)))
+
+
+def draw_row(symbol, quantity, separator):
+    if quantity <= 0:
+        print()
+        return
+
+    for i in range(quantity):
+        if i < quantity - 1:
+            print(symbol, end = separator)
+        else:
+            print(symbol, sep= "", end = "\n")
+
+draw_row("x", 9, ", ")
+draw_row("*", 20 , "-")
