@@ -299,3 +299,35 @@ def draw_row(symbol, quantity, separator):
 
 draw_row("x", 9, ", ")
 draw_row("*", 20 , "-")
+
+def calculate(operation, a, b):
+    try:
+        one, two = float(a), float(b)
+        match operation:
+            case "addition":
+                return one + two
+            case "subtraction":
+                return one - two
+            case "multiplication":
+                return one * two
+            case "division":
+                return one / two
+            case _:
+                return "not a valid operation"
+    except TypeError:
+        print ("Just number, not lists, functions or whatever the hell is not a cosidered a nuner")
+    except ValueError:
+        print("Just numbers, not letters")
+    except ZeroDivisionError:
+        print("In division you can't divide by zero, man")
+    except Exception:
+        print("What ever you did is provoking an error, please, do not do it")
+
+    return "Try again"
+
+
+calculate("addition", "a", 2)
+print(calculate("division", 4, 0))
+print(calculate("division", 4, 2))
+print(calculate("don", 4, 2))
+print(calculate("addition", list , 2))
