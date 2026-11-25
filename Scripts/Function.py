@@ -333,3 +333,37 @@ print(calculate("division", 4, 0))
 print(calculate("division", 4, 2))
 print(calculate("don", 4, 2))
 print(calculate("addition", list , 2))
+
+def isValidQualification(grade):
+    if 0 < grade <= 100:
+       if grade >= 60:
+           return True
+    return False
+
+def evaluateStudents(name, grade):
+    if isValidQualification(grade):
+        return f"The student: {name} has aproved"
+
+    return f"The student: {name} has reproved"
+
+student1 = evaluateStudents("Juan", 34)
+student2 = evaluateStudents("Belinda", 67)
+
+print(student1)
+print(student2)
+
+import random
+
+def rollTheDice(faces):
+    try:
+        faces = int(faces)
+        if faces < 2:
+            return None
+
+        return random.randint(1, faces)
+    except (TypeError, ValueError) as e:
+        return f"Error: {e}"
+
+print(rollTheDice("asdf"))
+print(rollTheDice(list))
+print(rollTheDice(1))
