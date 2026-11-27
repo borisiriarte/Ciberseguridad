@@ -124,7 +124,61 @@ def clean_logs(events):
         # 2. Verificamos que no esté vacío y que no esté repetido
         if cleaned and cleaned not in clean_events:
             clean_events.append(cleaned)
-            
+
     return clean_events
 
 print(clean_logs(listOfEvents))
+
+# [1,2,3,4,5] --- [1,2,3] [4, 5] --- [4, 5, 1, 2, 3] postive step
+# [1,2 3, 4, 5] --- [1,2] [3, 4, 5] --- [3, 4, 5, 1, 2]
+print ("------Excersice Two------")
+letras = [1,2,3,4,5]
+print(letras[0:3])
+print(letras[3:])
+print(letras[0:1])
+print(letras[1:])
+print(-2 % len(letras))
+print(letras[0:-2])
+print(letras[-2:])
+print(letras[0:3])
+print(letras[3:])
+print("-------------")
+
+def rotate_lists(elements, steps):
+    steps = steps % len(elements)
+
+    if steps <= 1:
+        return elements
+
+    elements[:] = elements[-steps:]+ elements[:-steps]
+    return elements
+
+print ("------Excersice Three------")
+print(not [])
+
+words = ["a","b", "c", "d"]
+words_1= ["a","b", "c", "d", 5]
+
+def format_legible_list(array):
+    try:
+        if  not isinstance(array, list):
+            raise TypeError("Parameter must be a list")
+
+        if not all(isinstance(x, str) for x in array):
+            raise TypeError("All elements inside the list must be texts(Strings)")
+
+        if not array:
+            return ""
+        if len(array) == 1:
+            return array[0]
+        if len(array) == 2:
+            return f"{array[0]} y {array[1]}"
+
+
+    except TypeError as e:
+        print(f"Type error: {e}")
+        return None
+
+
+    return f"{", ".join(array[:-1])} y {array[-1]}"
+print(format_legible_list(["s", "a"]))
