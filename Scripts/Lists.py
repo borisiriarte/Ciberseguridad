@@ -182,3 +182,100 @@ def format_legible_list(array):
 
     return f"{", ".join(array[:-1])} y {array[-1]}"
 print(format_legible_list(["s", "a"]))
+
+array = [3, 1, 7, 5]
+lista = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+lista_1 = []
+def maximum_addition(numbers):
+    if not numbers:
+        return
+
+    pointer_temp = 0
+    pointer_init = 0
+    pointer_end = 0
+
+    current_addition = numbers[0] #
+    maximum_total_addition= numbers[0] #
+
+    for i in range (1, len(numbers)):
+        if numbers[i] > current_addition + numbers[i]:
+            current_addition = numbers[i]
+            pointer_temp = i
+        else:
+            current_addition += numbers[i]
+
+        if current_addition > maximum_total_addition:
+            maximum_total_addition = current_addition
+            pointer_init = pointer_temp
+            pointer_end = i
+
+    return (maximum_total_addition, pointer_init, pointer_end)
+
+print(maximum_addition(array))
+print(maximum_addition(lista))
+print(maximum_addition(lista_1))
+print([-8, -3, -6, -1, -4])
+
+
+# 1st. we need to know it the grid is empty or if it has empty or if some of it subgrid isn't empty
+# 2nd. there is only one item the just return grid
+# 3rd. Verify all row are the same size
+
+def transpose(grid):
+    if not grid or not grid[0]:
+        return None
+
+    if len(grid) == 1:
+        return grid
+
+    number_rows = len(grid)
+    number_cols = len(grid[0])
+    print(number_rows, number_cols, "///")
+
+    for row in grid[1:]:
+        if len(row) != number_cols:
+            return None
+
+    transposed_grid = []
+
+    print("inicio")
+    for j in range(number_cols):
+        new_row = []
+        for i in range(number_rows):
+            new_row.append(grid[i][j])
+        transposed_grid.append(new_row)
+
+    print("fin")
+
+    return transposed_grid
+
+#[[1, 2, 3],
+# [4, 5, 6]]
+
+# i0j1  i0j2 i0j3
+# i1j1  i1j2 i1j3
+
+
+print(transpose([[1,2,3],[4,5,5]]), "/one")
+print(transpose([[1]]), "/two")
+
+print("New Excercise")
+def create_safety_table(rows, cols, init_value= 0):
+    matrix = []
+
+    for i in range(rows):
+        row = []
+        for j in range(cols):
+            row.append(init_value)
+        matrix.append(row)
+
+    return matrix
+
+def modify_specific_cell(a, b, matrix, new_value):
+    matrix[a][b] = new_value
+    return matrix
+
+matrix_1 = create_safety_table(3, 4)
+print(modify_specific_cell(2 , 3, matrix_1, 88))
+print(modify_specific_cell(1 , 3, matrix_1, 4))
+print(modify_specific_cell(0 , 1, matrix_1, 4))
